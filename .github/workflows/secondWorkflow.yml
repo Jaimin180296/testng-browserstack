@@ -1,0 +1,17 @@
+# .github/workflows/second-repo-workflow.yml
+name: Second Repo Workflow
+
+on:
+  repository_dispatch:
+    types: [trigger-second-repo-workflow]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run a script in the second repo
+        run: echo "Second repo workflow triggered by the first repo"
